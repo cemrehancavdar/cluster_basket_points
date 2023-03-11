@@ -1,6 +1,5 @@
 from pydantic import BaseModel, validator
 from shapely.geometry import Point
-from typing import Union
 
 
 class BBox(BaseModel):
@@ -31,11 +30,17 @@ class BBox(BaseModel):
 class OrderPoint(BaseModel):
     id: int
     point: Point
-    cluster_number: Union[int, None] = None
 
     class Config:
         arbitrary_types_allowed = True
+        json_encoders = {
+            Point: lambda v: v.__geo_interface__,
+        }
 
     def get_xy(self) -> list[float]:
         lon, lat = self.point.coords.xy
         return [lat[0], lon[0]]
+    
+    
+class ClusteredOrderPoint(OrderPoint):
+    cluster_number: int
