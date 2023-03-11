@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "python-basket-points"
+version = "0.1.0"
+description = ""
+authors = ["cemrehancavdar <cemrehancavdar@hotmail.com>"]
+readme = "README.md"
+packages = [{ include = "python_basket_points" }]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.93.0"
+uvicorn = { extras = ["standard"], version = "^0.21.0" }
+shapely = "^2.0.1"
+scikit-learn = "^1.2.2"
+
+[tool.poetry.scripts]
+dev = "main:start"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+ruff = "^0.0.254"
+mypy = "^1.1.1"
+pytest = "^7.2.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+flake8-quotes = { inline-quotes = 'single', multiline-quotes = 'double' }
+mccabe = { max-complexity = 14 }
+line-length = 120
+
+
+[tool.black]
+line-length = 120
+target-version = ["py39"]
