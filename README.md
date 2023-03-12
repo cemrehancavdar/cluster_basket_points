@@ -7,3 +7,5 @@ The backend is deployed on Render, and the API documentation can be found at htt
 The resulting GeoJSON file is visualized on the map, with each point's color indicating its cluster.
 
 Both the backend and frontend code are available on GitHub at https://github.com/cemrehancavdar/cluster_basket_points and https://github.com/cemrehancavdar/cluster_basket_points_fe, respectively.
+
+![resim](https://user-images.githubusercontent.com/50503448/224562894-4ed81b0e-4f5b-44b0-8c01-575185d60c8a.png)
