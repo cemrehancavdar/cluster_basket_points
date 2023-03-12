@@ -9,20 +9,15 @@ from python_basket_points.logic import (
 router = APIRouter()
 
 
-@router.get("/")
-def read_roout():
-    return {"hello", "world"}
-
-
-@router.get("/cluster/")
+@router.get("/cluster")
 def cluster(count: int = 500):
     clustered_points = get_clustered_points(point_count=count)
     feature_collection = clustered_points_to_feature_collection(clustered_points)
-    return {"data": feature_collection}
+    return feature_collection
 
 
 @router.get("/cluster/group")
 def grouped_cluster(count: int = 500):
     clustered_points = get_clustered_points(point_count=count)
     grouped_clusters = group_clustered_points(clustered_points)
-    return {"data": grouped_clusters}
+    return grouped_clusters
